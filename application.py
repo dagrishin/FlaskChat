@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
+import config
 from models import User
 from wtform_fields import *
 
@@ -8,8 +9,7 @@ from wtform_fields import *
 app = Flask(__name__)
 app.secret_key = 'aaaaaaaaaaaaaaa'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-    'postgres://vvskxyyxkbxltd:c5b7223c225437f0402733c08a2cb3a4563986b0afbf5349b4ee3c0851717a09@ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/dau8ght2s2j958'
+app.config['SQLALCHEMY_DATABASE_URI'] = config.postgres_url
 
 db = SQLAlchemy(app)
 
